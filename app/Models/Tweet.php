@@ -29,4 +29,11 @@ class Tweet extends Model
   {
     return $this->belongsToMany(User::class)->withTimestamps();
   }
+  // public function reported(){
+  //   return $this->belongsToMany(User::class, 'reported', 'tweet_id', 'reported_id')->withTimestamps();
+  // }
+  public function reporters()
+  {
+    return $this->belongsToMany(User::class, 'reports')->withTimestamps();
+  }
 }
